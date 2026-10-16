@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Happy Vietnamese Women's Day 20/10 ✨</title>
+  <title>Happy 20/10 ✨</title>
   
+  <!-- Font chữ nghệ thuật cao cấp -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -29,6 +30,7 @@
       color: #fff;
     }
 
+    /* Khung màn hình điện thoại tông đỏ rượu sang trọng */
     .app-screen {
       width: 100%;
       max-width: 420px;
@@ -37,13 +39,13 @@
       position: relative;
       overflow: hidden;
       background: radial-gradient(circle at 50% 25%, #3d0c19 0%, #1a0309 60%, #0a0104 100%);
-      box-shadow: 0 0 60px rgba(220, 20, 60, 0.25), 0 0 40px rgba(0, 0, 0, 0.9);
+      box-shadow: 0 0 60px rgba(220, 20, 60, 0.2), 0 0 40px rgba(0, 0, 0, 0.9);
     }
 
-    /* Hiệu ứng cánh hoa hồng rơi tự động */
+    /* Hiệu ứng cánh hoa hồng rơi */
     .petal {
       position: absolute;
-      top: -30px;
+      top: -40px;
       background: linear-gradient(135deg, #ff4d6d, #a4161a);
       border-radius: 80% 0 80% 40%;
       opacity: 0.8;
@@ -66,7 +68,7 @@
       }
     }
 
-    /* Đốm sáng phát quang lấp lánh */
+    /* Đốm sáng phát quang */
     .glow-dot {
       position: absolute;
       width: 4px;
@@ -83,7 +85,7 @@
       50% { opacity: 0.9; transform: scale(1.4); }
     }
 
-    /* Màn chuyển cảnh */
+    /* Quản lý các màn hình chuyển tiếp */
     .screen {
       position: absolute;
       inset: 0;
@@ -101,7 +103,7 @@
       transform: scale(0.9);
     }
 
-    /* MÀN 1: Giữ mở hoa */
+    /* MÀN 1: Nút bấm giữ */
     .hold-caption {
       font-size: 1.15rem;
       font-weight: 600;
@@ -163,6 +165,7 @@
       align-items: center;
       font-size: 2.2rem;
       box-shadow: 0 0 30px rgba(224, 30, 55, 0.6);
+      transition: transform 0.2s ease;
     }
 
     .hold-hint {
@@ -232,11 +235,11 @@
       animation: pulseCaption 2s infinite;
     }
 
-    /* MÀN 3: Bức thư */
+    /* MÀN 3: Bức thư phong cách Glassmorphism */
     .letter-card {
       width: 88%;
       max-height: 85%;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.94);
       color: #2b2b2b;
       border-radius: 22px;
       padding: 26px 22px;
@@ -316,6 +319,7 @@
       font-weight: 600;
       cursor: pointer;
       box-shadow: 0 4px 15px rgba(201, 24, 74, 0.4);
+      transition: transform 0.15s ease;
     }
 
     .close-btn:active {
@@ -325,14 +329,14 @@
 </head>
 <body>
 
-  <!-- Link phát nhạc trực tuyến tự động -->
+  <!-- File nhạc nền từ video (đặt tên là nhac.mp3 cùng thư mục) -->
   <audio id="bgMusic" loop preload="auto">
-    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-love-story-112196.mp3" type="audio/mpeg">
+    <source src="nhac.mp3" type="audio/mpeg">
   </audio>
 
   <div class="app-screen" id="app">
     
-    <!-- MÀN 1: Giữ nút để mở -->
+    <!-- MÀN 1: Nút giữ mở quà -->
     <div class="screen" id="step1">
       <div class="hold-caption">GIỮ ĐỂ MỞ QUÀ ✨</div>
       <div class="hold-container" id="holdBtn">
@@ -353,24 +357,25 @@
       </div>
 
       <div class="bouquet-box" id="bouquetBtn">
-        <!-- Link ảnh hoa hồng trực tuyến chất lượng cao -->
+        <!-- Đặt file ảnh bó hoa của bạn tên là hoa.png cùng thư mục -->
         <img class="bouquet-img" 
-             src="https://pngimg.com/d/bouquet_PNG63.png" 
+             src="hoa.png" 
+             onerror="this.onerror=null; this.src='https://pngimg.com/d/bouquet_PNG63.png';" 
              alt="Rose Bouquet" />
         <div class="tap-badge">Chạm vào bó hoa để mở thư 💌</div>
       </div>
     </div>
 
-    <!-- MÀN 3: Bức thư chúc mừng -->
+    <!-- MÀN 3: Thư chúc mừng -->
     <div class="screen hidden" id="step3">
       <div class="letter-card">
         <div class="letter-header">
           <h2>Gửi Bạn Của Tui ✨</h2>
-          <span>20 / 10</span>
+          <span>20 / 10 / 2026</span>
         </div>
         
         <div class="letter-body">
-          <p>chàoo, chúng ta cũm là bạn thân quen cũm lâu lâu gòi, thì hôm nay, tui cx có 1 tí lời văn hay ý đẹp mún gửi đến ng xinh đẹp bên kia màn hình.</p>
+          <p>Chàoo, chúng ta cũm là bạn thân quen cũm lâu lâu gòi, thì hôm nay, tui cx có 1 tí lời văn hay ý đẹp mún gửi đến ng xinh đẹp bên kia màn hình.</p>
           
           <p>Chúc bạn 20/10 này, xinh đẹp hơn nhiềuu, và vẫn dễ thương như dị nhé. Đặc biệt, chúc bạn cao hơn 1 tí.</p>
 
@@ -387,7 +392,7 @@
   </div>
 
   <script>
-    // 1. Tạo cánh hoa hồng rơi
+    // 1. Tạo hiệu ứng cánh hoa hồng rơi
     const app = document.getElementById('app');
     for (let i = 0; i < 18; i++) {
       const petal = document.createElement('div');
@@ -401,7 +406,7 @@
       app.appendChild(petal);
     }
 
-    // 2. Tạo đốm sáng
+    // 2. Tạo đốm sáng lấp lánh nền
     for (let i = 0; i < 22; i++) {
       const dot = document.createElement('div');
       dot.className = 'glow-dot';
@@ -412,7 +417,7 @@
       app.appendChild(dot);
     }
 
-    // 3. Logic giữ nút mở hoa & phát nhạc
+    // 3. Xử lý giữ nút nở hoa
     const holdBtn = document.getElementById('holdBtn');
     const progressCircle = document.getElementById('progressCircle');
     const music = document.getElementById('bgMusic');
@@ -423,6 +428,7 @@
 
     function startPress(e) {
       if (e) e.preventDefault();
+      // Tự động phát bài nhạc Feel My Love
       music.play().catch(() => {});
       if (navigator.vibrate) navigator.vibrate(40);
 
@@ -454,7 +460,7 @@
     holdBtn.addEventListener('mousedown', startPress);
     window.addEventListener('mouseup', cancelPress);
 
-    // 4. Mở thư khi chạm bó hoa
+    // 4. Chạm vào bó hoa để mở thư
     document.getElementById('bouquetBtn').addEventListener('click', () => {
       document.getElementById('step2').classList.add('hidden');
       setTimeout(() => {
@@ -462,7 +468,7 @@
       }, 350);
     });
 
-    // 5. Gấp thư để xem lại hoa
+    // 5. Gấp thư để quay lại ngắm hoa
     document.getElementById('closeLetterBtn').addEventListener('click', () => {
       document.getElementById('step3').classList.add('hidden');
       setTimeout(() => {
