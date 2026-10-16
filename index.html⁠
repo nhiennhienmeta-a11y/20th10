@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Happy Vietnamese Women's Day 20/10 ✨</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: #0b0204;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .app-screen {
+      width: 100%;
+      max-width: 420px;
+      height: 100vh;
+      max-height: 880px;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 25%, #3d0c19 0%, #1a0309 60%, #0a0104 100%);
+      box-shadow: 0 0 60px rgba(220, 20, 60, 0.25), 0 0 40px rgba(0, 0, 0, 0.9);
+    }
+
+    /* Hiệu ứng cánh hoa hồng rơi tự động */
+    .petal {
+      position: absolute;
+      top: -30px;
+      background: linear-gradient(135deg, #ff4d6d, #a4161a);
+      border-radius: 80% 0 80% 40%;
+      opacity: 0.8;
+      pointer-events: none;
+      filter: drop-shadow(0 2px 5px rgba(0,0,0,0.4));
+      animation: fallPetal linear infinite;
+    }
+
+    @keyframes fallPetal {
+      0% {
+        transform: translateY(0) rotate(0deg) scale(0.8);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.85;
+      }
+      100% {
+        transform: translateY(105vh) rotate(380deg) scale(1.1);
+        opacity: 0.2;
+      }
+    }
+
+    /* Đốm sáng phát quang lấp lánh */
+    .glow-dot {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #ffb3c1;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #ff758f, 0 0 20px #ff4d6d;
+      animation: pulseLight 3.5s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    @keyframes pulseLight {
+      0%, 100% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 0.9; transform: scale(1.4); }
+    }
+
+    /* Màn chuyển cảnh */
+    .screen {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 5;
+      transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .screen.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.9);
+    }
+
+    /* MÀN 1: Giữ mở hoa */
+    .hold-caption {
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      margin-bottom: 2.2rem;
+      text-transform: uppercase;
+      color: #ffe5ec;
+      text-shadow: 0 0 15px rgba(255, 117, 143, 0.6);
+      animation: pulseCaption 2.2s infinite ease-in-out;
+    }
+
+    @keyframes pulseCaption {
+      0%, 100% { opacity: 0.65; transform: scale(0.98); }
+      50% { opacity: 1; transform: scale(1.02); }
+    }
+
+    .hold-container {
+      position: relative;
+      width: 116px;
+      height: 116px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .hold-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .track-circle {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.12);
+      stroke-width: 4;
+    }
+
+    .fill-circle {
+      fill: none;
+      stroke: #ff4d6d;
+      stroke-width: 5;
+      stroke-dasharray: 283;
+      stroke-dashoffset: 283;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 0.04s linear;
+      filter: drop-shadow(0 0 8px #ff4d6d);
+    }
+
+    .hold-btn-core {
+      width: 84px;
+      height: 84px;
+      background: radial-gradient(circle, #e01e37 0%, #a71d2a 70%, #590d16 100%);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.2rem;
+      box-shadow: 0 0 30px rgba(224, 30, 55, 0.6);
+    }
+
+    .hold-hint {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: rgba(255, 200, 210, 0.6);
+      letter-spacing: 0.5px;
+    }
+
+    /* MÀN 2: Bó hoa hồng lớn */
+    .greeting-header {
+      position: absolute;
+      top: 8%;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .greeting-tag {
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #ff758f;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .greeting-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.3rem;
+      color: #fff0f3;
+      text-shadow: 0 0 15px rgba(255, 77, 109, 0.7);
+      line-height: 1.2;
+    }
+
+    .bouquet-box {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+      animation: floatBouquet 3.2s infinite ease-in-out;
+    }
+
+    @keyframes floatBouquet {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+
+    .bouquet-img {
+      width: 310px;
+      max-width: 85vw;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 25px rgba(224, 30, 55, 0.45));
+    }
+
+    .tap-badge {
+      margin-top: 14px;
+      font-size: 0.9rem;
+      color: #ffe5ec;
+      background: rgba(255, 77, 109, 0.18);
+      backdrop-filter: blur(10px);
+      padding: 8px 22px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 117, 143, 0.35);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      animation: pulseCaption 2s infinite;
+    }
+
+    /* MÀN 3: Bức thư */
+    .letter-card {
+      width: 88%;
+      max-height: 85%;
+      background: rgba(255, 255, 255, 0.95);
+      color: #2b2b2b;
+      border-radius: 22px;
+      padding: 26px 22px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), 0 0 35px rgba(255, 77, 109, 0.25);
+      display: flex;
+      flex-direction: column;
+      animation: openLetter 0.55s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    @keyframes openLetter {
+      from { transform: scale(0.7) translateY(40px); opacity: 0; }
+      to { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .letter-header {
+      text-align: center;
+      border-bottom: 2px dashed #ffb3c1;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+
+    .letter-header h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.1rem;
+      color: #c9184a;
+    }
+
+    .letter-header span {
+      font-size: 0.82rem;
+      color: #888;
+      display: block;
+      margin-top: 3px;
+    }
+
+    .letter-body {
+      font-size: 0.96rem;
+      line-height: 1.75;
+      color: #3f3d56;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .letter-body p {
+      margin-bottom: 12px;
+    }
+
+    .sign-section {
+      text-align: right;
+      margin-top: 14px;
+      padding-top: 8px;
+    }
+
+    .sign-title {
+      font-size: 0.9rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    .sign-author {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: #a4161a;
+      margin-top: 2px;
+    }
+
+    .close-btn {
+      align-self: center;
+      margin-top: 14px;
+      background: linear-gradient(135deg, #ff4d6d, #c9184a);
+      color: white;
+      border: none;
+      padding: 9px 26px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(201, 24, 74, 0.4);
+    }
+
+    .close-btn:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Link phát nhạc trực tuyến tự động -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-love-story-112196.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="app-screen" id="app">
+    
+    <!-- MÀN 1: Giữ nút để mở -->
+    <div class="screen" id="step1">
+      <div class="hold-caption">GIỮ ĐỂ MỞ QUÀ ✨</div>
+      <div class="hold-container" id="holdBtn">
+        <svg class="hold-svg" viewBox="0 0 100 100">
+          <circle class="track-circle" cx="50" cy="50" r="45"></circle>
+          <circle class="fill-circle" id="progressCircle" cx="50" cy="50" r="45"></circle>
+        </svg>
+        <div class="hold-btn-core">🌹</div>
+      </div>
+      <div class="hold-hint">Chạm và giữ để nở hoa</div>
+    </div>
+
+    <!-- MÀN 2: Bó hoa hồng lớn -->
+    <div class="screen hidden" id="step2">
+      <div class="greeting-header">
+        <div class="greeting-tag">20 THÁNG 10</div>
+        <div class="greeting-title">Happy Women's Day 🌹</div>
+      </div>
+
+      <div class="bouquet-box" id="bouquetBtn">
+        <!-- Link ảnh hoa hồng trực tuyến chất lượng cao -->
+        <img class="bouquet-img" 
+             src="https://pngimg.com/d/bouquet_PNG63.png" 
+             alt="Rose Bouquet" />
+        <div class="tap-badge">Chạm vào bó hoa để mở thư 💌</div>
+      </div>
+    </div>
+
+    <!-- MÀN 3: Bức thư chúc mừng -->
+    <div class="screen hidden" id="step3">
+      <div class="letter-card">
+        <div class="letter-header">
+          <h2>Gửi Bạn Của Tui ✨</h2>
+          <span>20 / 10</span>
+        </div>
+        
+        <div class="letter-body">
+          <p>chàoo, chúng ta cũm là bạn thân quen cũm lâu lâu gòi, thì hôm nay, tui cx có 1 tí lời văn hay ý đẹp mún gửi đến ng xinh đẹp bên kia màn hình.</p>
+          
+          <p>Chúc bạn 20/10 này, xinh đẹp hơn nhiềuu, và vẫn dễ thương như dị nhé. Đặc biệt, chúc bạn cao hơn 1 tí.</p>
+
+          <div class="sign-section">
+            <div class="sign-title">Thân Gửi.</div>
+            <div class="sign-author">anh Nguyễn Thanh Nhân</div>
+          </div>
+        </div>
+
+        <button class="close-btn" id="closeLetterBtn">Gấp thư lại ✉️</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // 1. Tạo cánh hoa hồng rơi
+    const app = document.getElementById('app');
+    for (let i = 0; i < 18; i++) {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      const size = 10 + Math.random() * 12;
+      petal.style.width = size + 'px';
+      petal.style.height = (size * 1.3) + 'px';
+      petal.style.left = Math.random() * 100 + '%';
+      petal.style.animationDuration = (4.5 + Math.random() * 4) + 's';
+      petal.style.animationDelay = (Math.random() * 5) + 's';
+      app.appendChild(petal);
+    }
+
+    // 2. Tạo đốm sáng
+    for (let i = 0; i < 22; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'glow-dot';
+      dot.style.left = Math.random() * 100 + '%';
+      dot.style.top = (15 + Math.random() * 75) + '%';
+      dot.style.animationDelay = (Math.random() * 3) + 's';
+      dot.style.animationDuration = (2.5 + Math.random() * 3) + 's';
+      app.appendChild(dot);
+    }
+
+    // 3. Logic giữ nút mở hoa & phát nhạc
+    const holdBtn = document.getElementById('holdBtn');
+    const progressCircle = document.getElementById('progressCircle');
+    const music = document.getElementById('bgMusic');
+
+    let holdTimer = null;
+    let holdProgress = 0;
+    const maxOffset = 283;
+
+    function startPress(e) {
+      if (e) e.preventDefault();
+      music.play().catch(() => {});
+      if (navigator.vibrate) navigator.vibrate(40);
+
+      holdTimer = setInterval(() => {
+        holdProgress += 3.5;
+        let offset = maxOffset - (holdProgress / 100) * maxOffset;
+        progressCircle.style.strokeDashoffset = Math.max(offset, 0);
+
+        if (holdProgress >= 100) {
+          clearInterval(holdTimer);
+          if (navigator.vibrate) navigator.vibrate([60, 40, 60]);
+          
+          document.getElementById('step1').classList.add('hidden');
+          setTimeout(() => {
+            document.getElementById('step2').classList.remove('hidden');
+          }, 400);
+        }
+      }, 30);
+    }
+
+    function cancelPress() {
+      clearInterval(holdTimer);
+      holdProgress = 0;
+      progressCircle.style.strokeDashoffset = maxOffset;
+    }
+
+    holdBtn.addEventListener('touchstart', startPress, { passive: false });
+    window.addEventListener('touchend', cancelPress);
+    holdBtn.addEventListener('mousedown', startPress);
+    window.addEventListener('mouseup', cancelPress);
+
+    // 4. Mở thư khi chạm bó hoa
+    document.getElementById('bouquetBtn').addEventListener('click', () => {
+      document.getElementById('step2').classList.add('hidden');
+      setTimeout(() => {
+        document.getElementById('step3').classList.remove('hidden');
+      }, 350);
+    });
+
+    // 5. Gấp thư để xem lại hoa
+    document.getElementById('closeLetterBtn').addEventListener('click', () => {
+      document.getElementById('step3').classList.add('hidden');
+      setTimeout(() => {
+        document.getElementById('step2').classList.remove('hidden');
+      }, 350);
+    });
+  </script>
+</body>
+</html>
