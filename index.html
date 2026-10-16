@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Happy 20/10 ✨</title>
+  <title>Happy Vietnamese Women's Day 20/10 ✨</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -18,33 +18,29 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background-color: #0b0204;
-      font-family: 'Quicksand', sans-serif;
-    }
-
     body {
+      background-color: #0b0204;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
       color: #fff;
     }
 
-    /* Khung ứng dụng chính */
     .app-screen {
       width: 100%;
       max-width: 420px;
-      height: 100%;
+      height: 100vh;
+      max-height: 880px;
       position: relative;
       overflow: hidden;
       background: radial-gradient(circle at 50% 25%, #3d0c19 0%, #1a0309 60%, #0a0104 100%);
-      box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+      box-shadow: 0 0 60px rgba(220, 20, 60, 0.25), 0 0 40px rgba(0, 0, 0, 0.9);
     }
 
-    /* Hiệu ứng cánh hoa rơi */
+    /* Hiệu ứng cánh hoa hồng rơi tự động */
     .petal {
       position: absolute;
       top: -30px;
@@ -52,16 +48,25 @@
       border-radius: 80% 0 80% 40%;
       opacity: 0.8;
       pointer-events: none;
+      filter: drop-shadow(0 2px 5px rgba(0,0,0,0.4));
       animation: fallPetal linear infinite;
     }
 
     @keyframes fallPetal {
-      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-      15% { opacity: 0.85; }
-      100% { transform: translateY(105vh) rotate(360deg); opacity: 0.2; }
+      0% {
+        transform: translateY(0) rotate(0deg) scale(0.8);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.85;
+      }
+      100% {
+        transform: translateY(105vh) rotate(380deg) scale(1.1);
+        opacity: 0.2;
+      }
     }
 
-    /* Đốm sáng */
+    /* Đốm sáng phát quang lấp lánh */
     .glow-dot {
       position: absolute;
       width: 4px;
@@ -69,52 +74,54 @@
       background: #ffb3c1;
       border-radius: 50%;
       box-shadow: 0 0 10px #ff758f, 0 0 20px #ff4d6d;
-      animation: pulseLight 3s infinite ease-in-out;
+      animation: pulseLight 3.5s infinite ease-in-out;
       pointer-events: none;
     }
 
     @keyframes pulseLight {
       0%, 100% { opacity: 0.2; transform: scale(0.8); }
-      50% { opacity: 0.9; transform: scale(1.3); }
+      50% { opacity: 0.9; transform: scale(1.4); }
     }
 
-    /* Quản lý các màn hình */
+    /* Màn chuyển cảnh */
     .screen {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       z-index: 5;
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     .screen.hidden {
       opacity: 0;
       pointer-events: none;
-      transform: scale(0.92);
+      transform: scale(0.9);
     }
 
-    /* MÀN 1: Nút bấm giữ */
+    /* MÀN 1: Giữ mở hoa */
     .hold-caption {
       font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      margin-bottom: 2rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      margin-bottom: 2.2rem;
       text-transform: uppercase;
       color: #ffe5ec;
-      text-shadow: 0 0 12px rgba(255, 117, 143, 0.6);
-      text-align: center;
+      text-shadow: 0 0 15px rgba(255, 117, 143, 0.6);
+      animation: pulseCaption 2.2s infinite ease-in-out;
+    }
+
+    @keyframes pulseCaption {
+      0%, 100% { opacity: 0.65; transform: scale(0.98); }
+      50% { opacity: 1; transform: scale(1.02); }
     }
 
     .hold-container {
       position: relative;
-      width: 114px;
-      height: 114px;
+      width: 116px;
+      height: 116px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -123,8 +130,7 @@
 
     .hold-svg {
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
       transform: rotate(-90deg);
@@ -132,7 +138,7 @@
 
     .track-circle {
       fill: none;
-      stroke: rgba(255, 255, 255, 0.15);
+      stroke: rgba(255, 255, 255, 0.12);
       stroke-width: 4;
     }
 
@@ -148,37 +154,38 @@
     }
 
     .hold-btn-core {
-      width: 82px;
-      height: 82px;
+      width: 84px;
+      height: 84px;
       background: radial-gradient(circle, #e01e37 0%, #a71d2a 70%, #590d16 100%);
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 2.2rem;
-      box-shadow: 0 0 25px rgba(224, 30, 55, 0.6);
+      box-shadow: 0 0 30px rgba(224, 30, 55, 0.6);
     }
 
     .hold-hint {
-      margin-top: 1.8rem;
+      margin-top: 2rem;
       font-size: 0.85rem;
-      color: rgba(255, 200, 210, 0.7);
+      color: rgba(255, 200, 210, 0.6);
+      letter-spacing: 0.5px;
     }
 
-    /* MÀN 2: Bó hoa */
+    /* MÀN 2: Bó hoa hồng lớn */
     .greeting-header {
       position: absolute;
       top: 8%;
       text-align: center;
-      padding: 0 15px;
+      padding: 0 20px;
     }
 
     .greeting-tag {
-      font-size: 0.85rem;
-      letter-spacing: 2px;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
       text-transform: uppercase;
       color: #ff758f;
-      font-weight: 700;
+      font-weight: 600;
       margin-bottom: 4px;
     }
 
@@ -195,55 +202,61 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 50px;
-      animation: floatBouquet 3s infinite ease-in-out;
+      margin-top: 40px;
+      animation: floatBouquet 3.2s infinite ease-in-out;
     }
 
     @keyframes floatBouquet {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
+      50% { transform: translateY(-14px); }
     }
 
     .bouquet-img {
-      width: 280px;
-      max-width: 80vw;
-      height: 350px;
-      object-fit: cover;
-      border-radius: 20px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(224, 30, 55, 0.4);
-      border: 2px solid rgba(255, 117, 143, 0.4);
+      width: 310px;
+      max-width: 85vw;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 25px rgba(224, 30, 55, 0.45));
     }
 
     .tap-badge {
-      margin-top: 15px;
+      margin-top: 14px;
       font-size: 0.9rem;
-      font-weight: 600;
       color: #ffe5ec;
-      background: rgba(255, 77, 109, 0.25);
-      backdrop-filter: blur(8px);
-      padding: 8px 20px;
-      border-radius: 25px;
-      border: 1px solid rgba(255, 117, 143, 0.4);
+      background: rgba(255, 77, 109, 0.18);
+      backdrop-filter: blur(10px);
+      padding: 8px 22px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 117, 143, 0.35);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      animation: pulseCaption 2s infinite;
     }
 
     /* MÀN 3: Bức thư */
     .letter-card {
       width: 88%;
-      max-height: 84%;
-      background: #fffdfa;
+      max-height: 85%;
+      background: rgba(255, 255, 255, 0.95);
       color: #2b2b2b;
-      border-radius: 20px;
-      padding: 24px 20px;
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+      border-radius: 22px;
+      padding: 26px 22px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), 0 0 35px rgba(255, 77, 109, 0.25);
       display: flex;
       flex-direction: column;
+      animation: openLetter 0.55s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    @keyframes openLetter {
+      from { transform: scale(0.7) translateY(40px); opacity: 0; }
+      to { transform: scale(1) translateY(0); opacity: 1; }
     }
 
     .letter-header {
       text-align: center;
       border-bottom: 2px dashed #ffb3c1;
-      padding-bottom: 10px;
-      margin-bottom: 14px;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
     }
 
     .letter-header h2 {
@@ -253,17 +266,18 @@
     }
 
     .letter-header span {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: #888;
       display: block;
-      margin-top: 2px;
+      margin-top: 3px;
     }
 
     .letter-body {
-      font-size: 0.95rem;
-      line-height: 1.7;
+      font-size: 0.96rem;
+      line-height: 1.75;
       color: #3f3d56;
       overflow-y: auto;
+      padding-right: 4px;
     }
 
     .letter-body p {
@@ -272,11 +286,12 @@
 
     .sign-section {
       text-align: right;
-      margin-top: 12px;
+      margin-top: 14px;
+      padding-top: 8px;
     }
 
     .sign-title {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: #666;
       font-style: italic;
     }
@@ -295,21 +310,31 @@
       background: linear-gradient(135deg, #ff4d6d, #c9184a);
       color: white;
       border: none;
-      padding: 8px 24px;
+      padding: 9px 26px;
       border-radius: 25px;
       font-size: 0.9rem;
       font-weight: 600;
       cursor: pointer;
+      box-shadow: 0 4px 15px rgba(201, 24, 74, 0.4);
+    }
+
+    .close-btn:active {
+      transform: scale(0.95);
     }
   </style>
 </head>
 <body>
 
+  <!-- Link phát nhạc trực tuyến tự động -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-love-story-112196.mp3" type="audio/mpeg">
+  </audio>
+
   <div class="app-screen" id="app">
     
-    <!-- MÀN 1: Giữ hoặc ấn để mở -->
+    <!-- MÀN 1: Giữ nút để mở -->
     <div class="screen" id="step1">
-      <div class="hold-caption">CHẠM ĐỂ MỞ QUÀ ✨</div>
+      <div class="hold-caption">GIỮ ĐỂ MỞ QUÀ ✨</div>
       <div class="hold-container" id="holdBtn">
         <svg class="hold-svg" viewBox="0 0 100 100">
           <circle class="track-circle" cx="50" cy="50" r="45"></circle>
@@ -317,10 +342,10 @@
         </svg>
         <div class="hold-btn-core">🌹</div>
       </div>
-      <div class="hold-hint">Chạm hoặc giữ nút tròn</div>
+      <div class="hold-hint">Chạm và giữ để nở hoa</div>
     </div>
 
-    <!-- MÀN 2: Bó hoa hồng -->
+    <!-- MÀN 2: Bó hoa hồng lớn -->
     <div class="screen hidden" id="step2">
       <div class="greeting-header">
         <div class="greeting-tag">20 THÁNG 10</div>
@@ -328,15 +353,15 @@
       </div>
 
       <div class="bouquet-box" id="bouquetBtn">
-        <!-- Ảnh hoa hồng từ máy chủ CDN Unsplash cực nét, không bao giờ chết link -->
+        <!-- Link ảnh hoa hồng trực tuyến chất lượng cao -->
         <img class="bouquet-img" 
-             src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=600&q=80" 
+             src="https://pngimg.com/d/bouquet_PNG63.png" 
              alt="Rose Bouquet" />
         <div class="tap-badge">Chạm vào bó hoa để mở thư 💌</div>
       </div>
     </div>
 
-    <!-- MÀN 3: Bức thư -->
+    <!-- MÀN 3: Bức thư chúc mừng -->
     <div class="screen hidden" id="step3">
       <div class="letter-card">
         <div class="letter-header">
@@ -350,8 +375,8 @@
           <p>Chúc bạn 20/10 này, xinh đẹp hơn nhiềuu, và vẫn dễ thương như dị nhé. Đặc biệt, chúc bạn cao hơn 1 tí.</p>
 
           <div class="sign-section">
-            <div class="sign-title"> người gửi.</div>
-            <div class="sign-author">Thanh Nhân</div>
+            <div class="sign-title">Thân Gửi.</div>
+            <div class="sign-author">anh Nguyễn Thanh Nhân</div>
           </div>
         </div>
 
@@ -364,62 +389,61 @@
   <script>
     // 1. Tạo cánh hoa hồng rơi
     const app = document.getElementById('app');
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 18; i++) {
       const petal = document.createElement('div');
       petal.className = 'petal';
-      const size = 10 + Math.random() * 10;
+      const size = 10 + Math.random() * 12;
       petal.style.width = size + 'px';
       petal.style.height = (size * 1.3) + 'px';
       petal.style.left = Math.random() * 100 + '%';
-      petal.style.animationDuration = (4 + Math.random() * 4) + 's';
-      petal.style.animationDelay = (Math.random() * 4) + 's';
+      petal.style.animationDuration = (4.5 + Math.random() * 4) + 's';
+      petal.style.animationDelay = (Math.random() * 5) + 's';
       app.appendChild(petal);
     }
 
     // 2. Tạo đốm sáng
-    for (let i = 0; i < 18; i++) {
+    for (let i = 0; i < 22; i++) {
       const dot = document.createElement('div');
       dot.className = 'glow-dot';
       dot.style.left = Math.random() * 100 + '%';
-      dot.style.top = (10 + Math.random() * 80) + '%';
+      dot.style.top = (15 + Math.random() * 75) + '%';
       dot.style.animationDelay = (Math.random() * 3) + 's';
-      dot.style.animationDuration = (2 + Math.random() * 3) + 's';
+      dot.style.animationDuration = (2.5 + Math.random() * 3) + 's';
       app.appendChild(dot);
     }
 
-    // 3. Xử lý mở quà (Hỗ trợ cả chạm 1 lần lẫn giữ lâu)
+    // 3. Logic giữ nút mở hoa & phát nhạc
     const holdBtn = document.getElementById('holdBtn');
     const progressCircle = document.getElementById('progressCircle');
+    const music = document.getElementById('bgMusic');
+
     let holdTimer = null;
     let holdProgress = 0;
     const maxOffset = 283;
 
-    function openBouquet() {
-      document.getElementById('step1').classList.add('hidden');
-      setTimeout(() => {
-        document.getElementById('step2').classList.remove('hidden');
-      }, 350);
-    }
-
     function startPress(e) {
       if (e) e.preventDefault();
+      music.play().catch(() => {});
+      if (navigator.vibrate) navigator.vibrate(40);
+
       holdTimer = setInterval(() => {
-        holdProgress += 4;
+        holdProgress += 3.5;
         let offset = maxOffset - (holdProgress / 100) * maxOffset;
         progressCircle.style.strokeDashoffset = Math.max(offset, 0);
 
         if (holdProgress >= 100) {
           clearInterval(holdTimer);
-          openBouquet();
+          if (navigator.vibrate) navigator.vibrate([60, 40, 60]);
+          
+          document.getElementById('step1').classList.add('hidden');
+          setTimeout(() => {
+            document.getElementById('step2').classList.remove('hidden');
+          }, 400);
         }
-      }, 25);
+      }, 30);
     }
 
     function cancelPress() {
-      if (holdProgress < 100 && holdProgress > 15) {
-        // Nếu chạm nhanh rồi thả, vẫn tự động mở cho người dùng
-        openBouquet();
-      }
       clearInterval(holdTimer);
       holdProgress = 0;
       progressCircle.style.strokeDashoffset = maxOffset;
@@ -435,15 +459,15 @@
       document.getElementById('step2').classList.add('hidden');
       setTimeout(() => {
         document.getElementById('step3').classList.remove('hidden');
-      }, 300);
+      }, 350);
     });
 
-    // 5. Gấp thư để quay lại ngắm hoa
+    // 5. Gấp thư để xem lại hoa
     document.getElementById('closeLetterBtn').addEventListener('click', () => {
       document.getElementById('step3').classList.add('hidden');
       setTimeout(() => {
         document.getElementById('step2').classList.remove('hidden');
-      }, 300);
+      }, 350);
     });
   </script>
 </body>
